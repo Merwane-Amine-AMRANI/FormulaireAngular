@@ -28,9 +28,42 @@ export class FormulaireComponent  {
           token:'',
         })
       }),
-      variables:'',
+      variables:this.formBuilder.group({
+        MVN_REPO_URL:this.formBuilder.group({
+          value:'',
+          protected:'',
+          type:'',
+          masked:'',
+          environment_scope:''
+        }),
+        MVN_REPO_USER:this.formBuilder.group({
+          value:'',
+          protected:'',
+          type:'',
+          masked:'',
+          environment_scope:''
+        }),
+        MVN_REPO_PASS:this.formBuilder.group({
+          value:'',
+          protected:'',
+          type:'',
+          masked:'',
+          environment_scope:''
+        })
+      }),
       template:'',
-      template_options:''
+      template_options:this.formBuilder.group({
+        group_id: '',
+        artifact_id: '',
+        is_deployed: '',
+        artifactory_url: '',
+        artifactory_repo: '',
+        artifactory_snapshot_repo: '',
+        artifactory_plugin_repo: '',
+        artifactory_plugin_snapshot_repo: '',
+        artifactory_user: '',
+        artifactory_encrypted_password: ''
+      }),
     })
   }
 

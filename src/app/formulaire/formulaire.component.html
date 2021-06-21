@@ -21,7 +21,7 @@
         <div formGroupName="user1">
           <label>User 1</label>
           <mat-form-field class="full-width">
-            <input formControlName="access_level" matInput="" placeholder="Access level">
+            <input formControlName="access_level" matInput="" placeholder="Access level (0, 10, 20, 30 or 40)">
           </mat-form-field>
           <mat-form-field class="full-width">
             <input formControlName="expires_at" matInput="" placeholder="Access expires at YYYY-MM-DD">
@@ -43,15 +43,100 @@
           </mat-form-field>
         </div>
       </div>
+      <div formGroupName="variables">
+        <label>Variables</label>
+        <div formGroupName="MVN_REPO_URL">
+          <label>MVN REPO URL</label>
+          <mat-form-field class="full-width">
+            <input formControlName="value" matInput="" placeholder="Value">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="protected" matInput="" placeholder="Protected ?">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="type" matInput="" placeholder="Type">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="masked" matInput="" placeholder="Masked ?">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="environment_scope" matInput="" placeholder="Environment scope">
+          </mat-form-field>
+        </div>
+        <div formGroupName="MVN_REPO_USER">
+          <label>MVN REPO USER</label>
+          <mat-form-field class="full-width">
+            <input formControlName="value" matInput="" placeholder="Value">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="protected" matInput="" placeholder="Protected ?">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="type" matInput="" placeholder="Type">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="masked" matInput="" placeholder="Masked ?">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="environment_scope" matInput="" placeholder="Environment scope">
+          </mat-form-field>
+        </div>
+        <div formGroupName="MVN_REPO_PASS">
+          <label>MVN REPO PASS</label>
+          <mat-form-field class="full-width">
+            <input formControlName="value" matInput="" placeholder="Value">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="protected" matInput="" placeholder="Protected ?">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="type" matInput="" placeholder="Type">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="masked" matInput="" placeholder="Masked ?">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="environment_scope" matInput="" placeholder="Environment scope">
+          </mat-form-field>
+        </div>
+      </div>
+      <label>Template</label>
       <mat-form-field class="full-width">
-        <input formControlName="variables" matInput="" placeholder="Variables">
+        <input formControlName="template" matInput="" placeholder="Template (only 'mvn')">
       </mat-form-field>
-      <mat-form-field class="full-width">
-        <input formControlName="template" matInput="" placeholder="Template">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input formControlName="template_options" matInput="" placeholder="Template options">
-      </mat-form-field>
+      <div formGroupName="template_options">
+        <label>Template options</label>
+        <mat-form-field class="full-width">
+          <input formControlName="group_id" matInput="" placeholder="Group id">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifact_id" matInput="" placeholder="Artifact id">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="is_deployed" matInput="" placeholder="Is deployed ?">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_url" matInput="" placeholder="Artifactory url">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_repo" matInput="" placeholder="Artifactory repo">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_snapshot_repo" matInput="" placeholder="Artifactory snapshot repo">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_plugin_repo" matInput="" placeholder="Artifactory plugin repo">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_plugin_snapshot_repo" matInput="" placeholder="Artifactory plugin snapshot repo">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_user" matInput="" placeholder="Artifactory user">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input formControlName="artifactory_encrypted_password" matInput="" placeholder="Artifactory encrypted password">
+        </mat-form-field>
+      </div>
   </mat-card-content>
     <mat-card-actions class="button">
       <button (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
