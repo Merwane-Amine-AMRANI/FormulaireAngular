@@ -1,103 +1,60 @@
-<form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
+<form [formGroup]="form" #ngForm="ngForm" class="form-container">
   <mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        Project Information <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
-                                  [ngClass]="{'invalid': ngForm.submitted }">* required</span>
-      </mat-card-title>
-    </mat-card-header>
+    <mat-card-title>
+      Registration form
+    </mat-card-title>
     <mat-card-content>
-      <div class="row">
-        <div class="col-md-6">
+      <mat-form-field class="full-width">
+        <input formControlName="repo_name" matInput="" placeholder="Repositry name">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input formControlName="gitlab_domain_name" matInput="" placeholder="Gitlab domaine name">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input formControlName="gitlab_token" matInput="" placeholder="Gitlab token">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input formControlName="is_token_admin" matInput="" placeholder="Is token admin ?">
+      </mat-form-field>
+      <div formGroupName="user_names">
+        <label>User names</label>
+        <div formGroupName="user1">
+          <label>User 1</label>
           <mat-form-field class="full-width">
-            <input formControlName="repo_name" matInput="" placeholder="Repositry name">
+            <input formControlName="access_level" matInput="" placeholder="Access level">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="expires_at" matInput="" placeholder="Access expires at YYYY-MM-DD">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input formControlName="token" matInput="" placeholder="Token">
           </mat-form-field>
         </div>
-        <div class="col-md-6">
+        <div formGroupName="user2">
+          <label>User 2</label>
           <mat-form-field class="full-width">
-            <input formControlName="gitlab_domain_name" matInput="" placeholder="Gitlab domaine name">
+            <input formControlName="access_level" matInput="" placeholder="Access level">
           </mat-form-field>
-        </div>
-        <div class="col-md-6">
           <mat-form-field class="full-width">
-            <input formControlName="gitlab_token" matInput="" placeholder="Gitlab token">
+            <input formControlName="expires_at" matInput="" placeholder="Access expires at YYYY-MM-DD">
           </mat-form-field>
-        </div>
-        <div class="col-md-6">
           <mat-form-field class="full-width">
-            <input formControlName="is_token_admin" matInput="" placeholder="Is token admin ?">
-          </mat-form-field>
-        </div>
-        <div class="user-parent-div" formGroupName="user_names">
-          <div class="col-md-6">
-            <mat-form-field class="full-width">
-              <input formGroupName="user1" matInput="" placeholder="First User name">
-            </mat-form-field>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input formControlName="access_level_1" matInput="" placeholder="Access level">
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input formControlName="expires_at_1" matInput="" placeholder="Access expires at YYYY-MM-DD">
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input formControlName="token_1" matInput="" placeholder="Token">
-              </mat-form-field>
-            </div>
-          </div>
-        
-          <div class="col-md-6">
-            <mat-form-field class="full-width">
-              <input formGroupName="user2" matInput="" placeholder="Second User name">
-            </mat-form-field>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input formControlName="access_level_2" matInput="" placeholder="Access level">
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input formControlName="expires_at_2" matInput="" placeholder="Access expires at YYYY-MM-DD">
-              </mat-form-field>
-            </div>
-            <div class="col-md-6">
-              <mat-form-field class="full-width">
-                <input formControlName="token_2" matInput="" placeholder="Token">
-              </mat-form-field>
-            </div>
-          </div>
-          
-        </div>
-        <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="variables" matInput="" placeholder="Variables">
-          </mat-form-field>
-        </div>
-        
-        <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="template" matInput="" placeholder="Template">
-          </mat-form-field>
-        </div>
-        <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="template_options" matInput="" placeholder="Template options">
+            <input formControlName="token" matInput="" placeholder="Token">
           </mat-form-field>
         </div>
       </div>
-    </mat-card-content>
+      <mat-form-field class="full-width">
+        <input formControlName="variables" matInput="" placeholder="Variables">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input formControlName="template" matInput="" placeholder="Template">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input formControlName="template_options" matInput="" placeholder="Template options">
+      </mat-form-field>
+  </mat-card-content>
     <mat-card-actions class="button">
       <button (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
     </mat-card-actions>
   </mat-card>
 </form>
-<mat-card>
-  <p>
-    Form : {{ profileForm.value | json }}
-  </p>
-</mat-card>
-

@@ -6,49 +6,46 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
   templateUrl: './formulaire.component.html',
   styleUrls: ['./formulaire.component.scss']
 })
+
 export class FormulaireComponent  {
+  form: FormGroup;
 
-
-  constructor(private formBuilder:FormBuilder) { }
-
-    profileForm = this.formBuilder.group({
-    repo_name:["",[Validators.required]],
-    gitlab_domain_name:['',[Validators.required]],
-    gitlab_token:['',[Validators.required]],
-    is_token_admin:['',[Validators.required]],
-    user_names:this.formBuilder.group({
-      user1:this.formBuilder.group({
-        access_level_1:'',
-        expires_at_1:'',
-        token_1:'',
+  constructor(public formBuilder: FormBuilder){
+    this.form = this.formBuilder.group({
+      repo_name:'',
+      gitlab_domain_name:'',
+      gitlab_token:'',
+      is_token_admin:'',
+      user_names:this.formBuilder.group({
+        user1:this.formBuilder.group({
+          access_level:'',
+          expires_at:'',
+          token:'',
+        }),
+        user2:this.formBuilder.group({
+          access_level:'',
+          expires_at:'',
+          token:'',
+        })
       }),
-      user2:this.formBuilder.group({
-        access_level_2:[''],
-        expires_at_2:[''],
-        token_2:[''],
-      })
-    }),
-    variables:['',[Validators.required]],
-    template:['',[Validators.required]],
-    template_options:['',[Validators.required]]
-  });
-
-  onSubmit() {
-    if (this.profileForm.valid) {
-      console.log('Profile form data :: ', this.profileForm.value);
-        let file = new Blob([JSON.stringify(this.profileForm.value)],
-          {type:'json'});
-        let a = document.createElement("a"),
-          url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = "config";
-        a.click();
-        setTimeout(function() {
-          window.URL.revokeObjectURL(url);
-        }, 0);
-
-    }
+      variables:'',
+      template:'',
+      template_options:''
+    })
   }
 
-
+  onSubmit() {
+    if (this.form.valid) {
+      console.log('Profile form data :: ', this.form.value);
+      let file = new Blob([JSON.stringify(this.form.value)], {type:'json'});
+      let a = document.createElement("a"),
+      url = URL.createObjectURL(file);
+      a.href = url;
+      a.download = "config";
+      a.click();
+      setTimeout(function() {
+        window.URL.revokeObjectURL(url);
+      }, 0);
+    };
+  };
 }
