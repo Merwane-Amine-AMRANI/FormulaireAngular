@@ -5,7 +5,7 @@
     </mat-card-title>
     <mat-card-content>
       <mat-form-field class="full-width">
-        <input formControlName="repo_name" matInput="" placeholder="Repositry name">
+        <input formControlName="repo_name" matInput="number" placeholder="Repositry name">
       </mat-form-field>
       <mat-form-field class="full-width">
         <input formControlName="gitlab_domain_name" matInput="" placeholder="Gitlab domaine name">
@@ -13,13 +13,20 @@
       <mat-form-field class="full-width">
         <input formControlName="gitlab_token" matInput="" placeholder="Gitlab token">
       </mat-form-field>
+      <label>Token admin</label>
       <mat-form-field class="full-width">
-        <input formControlName="is_token_admin" matInput="" placeholder="Is token admin ?">
+        <mat-select formControlName="is_token_admin" placeholder="Token admin ?">
+          <mat-option value="0">False</mat-option>
+          <mat-option value="1">True</mat-option>
+        </mat-select>
       </mat-form-field>
       <div formGroupName="user_names">
         <label>User names</label>
-        <div formGroupName="user1">
+        <div formGroupName="user1" >
           <label>User 1</label>
+          <mat-form-field class="full-width">
+            <input formControlName="user_name" matInput="" placeholder="User name">
+          </mat-form-field>
           <mat-form-field class="full-width">
             <input formControlName="access_level" matInput="" placeholder="Access level (0, 10, 20, 30 or 40)">
           </mat-form-field>
@@ -32,6 +39,9 @@
         </div>
         <div formGroupName="user2">
           <label>User 2</label>
+          <mat-form-field class="full-width">
+            <input formControlName="user_name" matInput="" placeholder="User name">
+          </mat-form-field>
           <mat-form-field class="full-width">
             <input formControlName="access_level" matInput="" placeholder="Access level">
           </mat-form-field>

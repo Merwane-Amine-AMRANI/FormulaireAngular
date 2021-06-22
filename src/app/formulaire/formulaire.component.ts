@@ -18,11 +18,13 @@ export class FormulaireComponent  {
       is_token_admin:'',
       user_names:this.formBuilder.group({
         user1:this.formBuilder.group({
+          user_name:'',
           access_level:'',
           expires_at:'',
           token:'',
         }),
         user2:this.formBuilder.group({
+          user_name:'',
           access_level:'',
           expires_at:'',
           token:'',
