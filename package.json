@@ -23,6 +23,7 @@
     "json-server": "^0.16.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
+    "txt-file-to-json": "^3.0.6",
     "write-json-file": "^4.3.0",
     "zone.js": "~0.11.4"
   },

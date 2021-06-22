@@ -12,10 +12,10 @@ export class FormulaireComponent  {
 
   constructor(public formBuilder: FormBuilder){
     this.form = this.formBuilder.group({
-      repo_name:'',
-      gitlab_domain_name:'',
-      gitlab_token:'',
-      is_token_admin:'',
+      repo_name:['',[Validators.required]],
+      gitlab_domain_name:['',[Validators.required]],
+      gitlab_token:['',[Validators.required]],
+      is_token_admin:['',[Validators.required]],
       user_names:this.formBuilder.group({
         user1:this.formBuilder.group({
           user_name:'',
@@ -72,7 +72,7 @@ export class FormulaireComponent  {
   onSubmit() {
     if (this.form.valid) {
       console.log('Profile form data :: ', this.form.value);
-      let file = new Blob([JSON.stringify(this.form.value)], {type:'json'});
+      let file = new Blob([JSON.stringify(this.form.value,null,22)], {type:'.kjson'});
       let a = document.createElement("a"),
       url = URL.createObjectURL(file);
       a.href = url;

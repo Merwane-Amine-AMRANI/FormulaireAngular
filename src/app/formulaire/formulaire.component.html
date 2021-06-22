@@ -5,7 +5,7 @@
     </mat-card-title>
     <mat-card-content>
       <mat-form-field class="full-width">
-        <input formControlName="repo_name" matInput="number" placeholder="Repositry name">
+        <input formControlName="repo_name" matInput="" placeholder="Repositry name">
       </mat-form-field>
       <mat-form-field class="full-width">
         <input formControlName="gitlab_domain_name" matInput="" placeholder="Gitlab domaine name">
@@ -27,9 +27,13 @@
           <mat-form-field class="full-width">
             <input formControlName="user_name" matInput="" placeholder="User name">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="access_level" matInput="" placeholder="Access level (0, 10, 20, 30 or 40)">
-          </mat-form-field>
+          <mat-select formControlName="access_level" placeholder="Access level ?">
+            <mat-option value="0">0</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="20">20</mat-option>
+            <mat-option value="30">30</mat-option>
+            <mat-option value="40">40</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="expires_at" matInput="" placeholder="Access expires at YYYY-MM-DD">
           </mat-form-field>
@@ -42,9 +46,13 @@
           <mat-form-field class="full-width">
             <input formControlName="user_name" matInput="" placeholder="User name">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="access_level" matInput="" placeholder="Access level">
-          </mat-form-field>
+          <mat-select formControlName="access_level" placeholder="Access level ?">
+            <mat-option value="0">0</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="20">20</mat-option>
+            <mat-option value="30">30</mat-option>
+            <mat-option value="40">40</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="expires_at" matInput="" placeholder="Access expires at YYYY-MM-DD">
           </mat-form-field>
@@ -60,15 +68,17 @@
           <mat-form-field class="full-width">
             <input formControlName="value" matInput="" placeholder="Value">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="protected" matInput="" placeholder="Protected ?">
-          </mat-form-field>
+          <mat-select formControlName="protected" placeholder="Protected ?">
+            <mat-option value="False">False</mat-option>
+            <mat-option value="True">True</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="type" matInput="" placeholder="Type">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="masked" matInput="" placeholder="Masked ?">
-          </mat-form-field>
+          <mat-select formControlName="masked" placeholder="Masked ?">
+            <mat-option value="False">False</mat-option>
+            <mat-option value="True">True</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="environment_scope" matInput="" placeholder="Environment scope">
           </mat-form-field>
@@ -78,15 +88,17 @@
           <mat-form-field class="full-width">
             <input formControlName="value" matInput="" placeholder="Value">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="protected" matInput="" placeholder="Protected ?">
-          </mat-form-field>
+          <mat-select formControlName="protected" placeholder="Protected ?">
+            <mat-option value="False">False</mat-option>
+            <mat-option value="True">True</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="type" matInput="" placeholder="Type">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="masked" matInput="" placeholder="Masked ?">
-          </mat-form-field>
+          <mat-select formControlName="masked" placeholder="Masked ?">
+            <mat-option value="False">False</mat-option>
+            <mat-option value="True">True</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="environment_scope" matInput="" placeholder="Environment scope">
           </mat-form-field>
@@ -96,15 +108,17 @@
           <mat-form-field class="full-width">
             <input formControlName="value" matInput="" placeholder="Value">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="protected" matInput="" placeholder="Protected ?">
-          </mat-form-field>
+          <mat-select formControlName="protected" placeholder="Protected ?">
+            <mat-option value="False">False</mat-option>
+            <mat-option value="True">True</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="type" matInput="" placeholder="Type">
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input formControlName="masked" matInput="" placeholder="Masked ?">
-          </mat-form-field>
+          <mat-select formControlName="masked" placeholder="Masked ?">
+            <mat-option value="False">False</mat-option>
+            <mat-option value="True">True</mat-option>
+          </mat-select>
           <mat-form-field class="full-width">
             <input formControlName="environment_scope" matInput="" placeholder="Environment scope">
           </mat-form-field>
@@ -122,9 +136,10 @@
         <mat-form-field class="full-width">
           <input formControlName="artifact_id" matInput="" placeholder="Artifact id">
         </mat-form-field>
-        <mat-form-field class="full-width">
-          <input formControlName="is_deployed" matInput="" placeholder="Is deployed ?">
-        </mat-form-field>
+        <mat-select formControlName="is_deployed" placeholder="Is deployed?">
+          <mat-option value="0">False</mat-option>
+          <mat-option value="1">True</mat-option>
+        </mat-select>
         <mat-form-field class="full-width">
           <input formControlName="artifactory_url" matInput="" placeholder="Artifactory url">
         </mat-form-field>
