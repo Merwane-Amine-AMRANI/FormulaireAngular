@@ -16,7 +16,7 @@ export class FormulaireComponent  {
       gitlab_domain_name:['',[Validators.required]],
       gitlab_token:['',[Validators.required]],
       is_token_admin:['',[Validators.required]],
-      user_names:this.formBuilder.group({
+      users:this.formBuilder.group({
         user1:this.formBuilder.group({
           user_name:'',
           access_level:'',
