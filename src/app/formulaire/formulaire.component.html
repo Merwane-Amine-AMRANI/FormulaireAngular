@@ -174,7 +174,11 @@
           <input formControlName="artifactory_encrypted_password" matInput="" placeholder="Artifactory encrypted password">
         </mat-form-field>
       </div>
-  </mat-card-content>
+    </mat-card-content>
+
+    <mat-card-actions class="button">
+      <button (click)="onPost()" mat-raised-button color="primary">Submit post</button>
+    </mat-card-actions>
     <mat-card-actions class="button">
       <button (click)="onSubmit()" mat-raised-button color="primary">Submit</button>
     </mat-card-actions>

@@ -14,6 +14,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -24,6 +25,7 @@ import {MatInputModule} from "@angular/material/input";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

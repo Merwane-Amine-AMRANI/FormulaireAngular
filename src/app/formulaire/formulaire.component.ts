@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-formulaire',
@@ -7,10 +10,11 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
   styleUrls: ['./formulaire.component.scss']
 })
 
-export class FormulaireComponent  {
+export class FormulaireComponent {
   form: FormGroup;
+  postId: any;
 
-  constructor(public formBuilder: FormBuilder){
+  constructor(public formBuilder: FormBuilder, private http: HttpClient){
     this.form = this.formBuilder.group({
       repo_name:['',[Validators.required]],
       gitlab_domain_name:['',[Validators.required]],
@@ -69,10 +73,19 @@ export class FormulaireComponent  {
     })
   }
 
+
+  
+  onPost() {      
+    console.log("clicked")
+    this.http.post<any>('http://0.0.0.0:5000/api/bootstrap', JSON.stringify(this.form.value,null,22), {'headers': { 'content-type': 'application/json'} }).subscribe(data =>{
+      console.log("Hello World")
+    })
+  }
+    
   onSubmit() {
     if (this.form.valid) {
       console.log('Profile form data :: ', this.form.value);
-      let file = new Blob([JSON.stringify(this.form.value,null,22)], {type:'.kjson'});
+      let file = new Blob([JSON.stringify(this.form.value,null,22)], {type:'application/json'});
       let a = document.createElement("a"),
       url = URL.createObjectURL(file);
       a.href = url;
