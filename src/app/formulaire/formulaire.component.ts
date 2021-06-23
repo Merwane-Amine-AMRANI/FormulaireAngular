@@ -75,14 +75,14 @@ export class FormulaireComponent {
 
 
   
-  onPost() {      
+  onSubmit() {
     console.log("clicked")
     this.http.post<any>('http://0.0.0.0:5000/api/bootstrap', JSON.stringify(this.form.value,null,22), {'headers': { 'content-type': 'application/json'} }).subscribe(data =>{
       console.log("Hello World")
     })
   }
     
-  onSubmit() {
+  onDownload() {
     if (this.form.valid) {
       console.log('Profile form data :: ', this.form.value);
       let file = new Blob([JSON.stringify(this.form.value,null,22)], {type:'application/json'});
