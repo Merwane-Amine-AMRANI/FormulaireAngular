@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators, } from "@angular/forms";
+import { HttpClient } from "@angular/common/http"
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
@@ -10,7 +10,7 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 export class FormulaireComponent  {
   form: FormGroup;
 
-  constructor(public formBuilder: FormBuilder){
+  constructor(public formBuilder: FormBuilder, private http: HttpClient){
     this.form = this.formBuilder.group({
       repo_name:'',
       gitlab_domain_name:'',
@@ -73,6 +73,7 @@ export class FormulaireComponent  {
     if (this.form.valid) {
       console.log('Profile form data :: ', this.form.value);
       let file = new Blob([JSON.stringify(this.form.value)], {type:'json'});
+      /*
       let a = document.createElement("a"),
       url = URL.createObjectURL(file);
       a.href = url;
@@ -80,7 +81,10 @@ export class FormulaireComponent  {
       a.click();
       setTimeout(function() {
         window.URL.revokeObjectURL(url);
-      }, 0);
+      }, 0);*/
+      this.http.post<any>("http://localhost:5000/api/bootstrap",JSON.stringify(this.form.value)).subscribe(data => {
+        console.log(data);
+      });
     };
   };
 }
